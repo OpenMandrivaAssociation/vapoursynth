@@ -1,5 +1,6 @@
 %define major 0
-%define libname %mklibname vapoursynth-script %{major}
+%define libname %mklibname %{name} %{major}
+%define libscript %mklibname vapoursynth-script %{major}
 %define devname %mklibname %{name} -d
 
 Summary:	A video processing framework with the future in mind
@@ -11,6 +12,7 @@ Group:		Video
 Url:		http://www.vapoursynth.com/
 Source0:	https://github.com/vapoursynth/vapoursynth/archive/%{version}.tar.gz
 Source1:	vapoursynth.xml
+Patch0:		vapoursynth-R26-soname.patch
 BuildRequires:	python3egg(cython)
 BuildRequires:	python3egg(sphinx)
 BuildRequires:	shared-mime-info
@@ -75,15 +77,27 @@ Plugins package for %{name}
 #----------------------------------------------------------------------------
 
 %package -n %{libname}
-Summary:	Main library for %{name}
+Summary:	Shared library for %{name}
 Group:		System/Libraries
-Conflicts:	%{_lib}vapoursynth0 < R26-2
-Obsoletes:	%{_lib}vapoursynth0 < R26-2
 
 %description -n %{libname}
-Main library for %{name}.
+Shared library for %{name}.
 
 %files -n %{libname}
+%doc ofl.txt COPYING.LGPLv2.1 ChangeLog
+%{_libdir}/libvapoursynth.so.%{major}*
+
+#----------------------------------------------------------------------------
+
+%package -n %{libscript}
+Summary:	Shared library for %{name}
+Group:		System/Libraries
+Conflicts:	%{_lib}vapoursynth0 < R26-2
+
+%description -n %{libscript}
+Shared library for %{name}.
+
+%files -n %{libscript}
 %doc ofl.txt COPYING.LGPLv2.1 ChangeLog
 %{_libdir}/libvapoursynth-script.so.%{major}*
 
@@ -93,6 +107,7 @@ Main library for %{name}.
 Summary:	Development files for %{name}
 Group:		Development/C++
 Requires:	%{libname} = %{EVRD}
+Requires:	%{libscript} = %{EVRD}
 Provides:	%{name}-devel = %{EVRD}
 Obsoletes:	%{_lib}vapoursynth-static-devel < R26-2
 
@@ -102,6 +117,7 @@ Development files and headers for %{name}.
 %files -n %{devname}
 %doc ofl.txt COPYING.LGPLv2.1 ChangeLog
 %{_includedir}/%{name}
+%{_libdir}/libvapoursynth.so
 %{_libdir}/libvapoursynth-script.so
 %{_libdir}/pkgconfig/*.pc
 
@@ -138,6 +154,7 @@ This package contains documentation of %{name}.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 ./autogen.sh
