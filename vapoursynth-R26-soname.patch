@@ -1,0 +1,12 @@
+diff -urN vapoursynth-R26/Makefile.am vapoursynth-R26-patched/Makefile.am
+--- vapoursynth-R26/Makefile.am	2015-05-19 16:37:02.858267169 +1000
++++ vapoursynth-R26-patched/Makefile.am	2015-05-19 16:41:07.152278286 +1000
+@@ -86,7 +86,7 @@
+ 
+ pkgconfig_DATA += pc/vapoursynth.pc
+ 
+-libvapoursynth_la_LDFLAGS = -no-undefined -avoid-version
++libvapoursynth_la_LDFLAGS = -no-undefined -version-info 0
+ libvapoursynth_la_CPPFLAGS = $(AVCODEC_CFLAGS) $(AVUTIL_CFLAGS) $(SWSCALE_CFLAGS) -DVS_PATH_PLUGINDIR='"$(PLUGINDIR)"'
+ libvapoursynth_la_LIBADD = $(AVUTIL_LIBS) $(SWSCALE_LIBS) $(DLOPENLIB)
+ 
