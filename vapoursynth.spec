@@ -5,20 +5,35 @@
 
 Summary:	A video processing framework with the future in mind
 Name:		vapoursynth
-Version:	R26
-Release:	2
-License:	OFL and LGPLv2.1
+Version:	R52
+Release:	1
+License:	LGPLv2.1
 Group:		Video
 Url:		http://www.vapoursynth.com/
-Source0:	https://github.com/vapoursynth/vapoursynth/archive/%{version}.tar.gz
-Source1:	vapoursynth.xml
-Patch0:		vapoursynth-R26-soname.patch
-BuildRequires:	python3egg(cython)
-BuildRequires:	python3egg(sphinx)
-BuildRequires:	shared-mime-info
+Source0:	https://github.com/vapoursynth/vapoursynth/archive/%{version}/%{name}-%{version}.tar.gz
+#Source1:	vapoursynth.xml
+#Patch0:		vapoursynth-R26-soname.patch
+
+BuildRequires:  libtool
+BuildRequires:  nasm
 BuildRequires:	yasm
+BuildRequires:  pkgconfig(python)
+BuildRequires:  pkgconfig(tesseract)
+BuildRequires:  pkgconfig(zimg)
+BuildRequires:  python
+BuildRequires:  python3dist(setuptools)
+BuildRequires:	python3dist(cython)
+BuildRequires:	python3dist(sphinx)
+BuildRequires:	shared-mime-info
 BuildRequires:	ffmpeg-devel
-BuildRequires:	pkgconfig(tesseract)
+BuildRequires:  pkgconfig(libass)
+BuildRequires:  pkgconfig(libavcodec)
+BuildRequires:  pkgconfig(libavformat)
+BuildRequires:  pkgconfig(libavutil)
+
+# Optional
+BuildRequires:  pkgconfig(Magick++) >= 7.0
+
 Requires:	%{name}-plugins = %{EVRD}
 Requires:	ffmpeg
 Requires:	tesseract
@@ -123,18 +138,18 @@ Development files and headers for %{name}.
 
 #----------------------------------------------------------------------------
 
-%package -n python3-%{name}
+%package -n python-%{name}
 Summary:	Python bindings for %{name}
 Group:		Development/Python
 Requires:	%{libname} = %{EVRD}
-BuildRequires:	pkgconfig(python3)
-BuildRequires:	python3egg(setuptools)
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python3dist(setuptools)
 
-%description -n python3-%{name}
+%description -n python-%{name}
 Python bindings for %{name}.
 
 
-%files -n python3-%{name}
+%files -n python-%{name}
 %doc ofl.txt COPYING.LGPLv2.1 ChangeLog
 %{py3_platsitedir}/vapoursynth.so
 
@@ -153,18 +168,29 @@ This package contains documentation of %{name}.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
-%patch0 -p1
+%autosetup -p1
 
 %build
-./autogen.sh
-%configure2_5x
-%make
-
+autoreconf -vif
+%configure \
+    --disable-static \
+    --enable-x86-asm \
+    --enable-core \
+    --enable-vsscript \
+    --enable-vspipe \
+    --enable-python-module \
+    --enable-eedi3 \
+    --enable-ImageMagick \
+    --enable-miscfilters \
+    --enable-morpho \
+    --enable-ocr \
+    --enable-removegrain \
+    --enable-ffmpeg \
+    --enable-vinverse \
+    --enable-vivtc
+ 
+%make_build
+ 
 %install
-%makeinstall_std
-install -dm 755 %{buildroot}%{_datadir}/mime/packages
-install -m 644 %{SOURCE1} %{buildroot}%{_datadir}/mime/packages
-
-rm -f %{buildroot}%{_libdir}/*.a
-
+%py_install
+%make_install
