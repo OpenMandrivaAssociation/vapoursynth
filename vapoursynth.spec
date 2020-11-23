@@ -117,7 +117,7 @@ Conflicts:	%{_lib}vapoursynth0 < R26-2
 Shared library for %{name}.
 
 %files -n %{libscript}
-%doc ofl.txt COPYING.LGPLv2.1 ChangeLog
+%doc ChangeLog
 %{_libdir}/libvapoursynth-script.so.%{major}*
 
 #----------------------------------------------------------------------------
