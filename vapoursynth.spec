@@ -85,7 +85,7 @@ Plugins package for %{name}
 
 %files plugins
 %doc ChangeLog
-%{_libdir}/vapoursynth/libassvapour.so
+#{_libdir}/vapoursynth/libassvapour.so
 %{_libdir}/vapoursynth/libeedi3.so
 %{_libdir}/vapoursynth/libmorpho.so
 %{_libdir}/vapoursynth/libocr.so
