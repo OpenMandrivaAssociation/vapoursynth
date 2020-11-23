@@ -180,7 +180,7 @@ This package contains documentation of %{name}.
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1
+%autosetup -p1 %{name}-R%{version}
 
 %build
 autoreconf -vif
