@@ -3,6 +3,9 @@
 %define libscript %mklibname vapoursynth-script %{major}
 %define devname %mklibname %{name} -d
 
+%define _disable_ld_no_undefined 1
+%define _disable_lto 1
+
 Summary:	A video processing framework with the future in mind
 Name:		vapoursynth
 Version:	R52
