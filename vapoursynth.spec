@@ -92,6 +92,9 @@ Plugins package for %{name}
 %{_libdir}/vapoursynth/libremovegrain.so
 %{_libdir}/vapoursynth/libvinverse.so
 %{_libdir}/vapoursynth/libvivtc.so
+%{_libdir}/vapoursynth/libsubtext.so
+%{_libdir}/vapoursynth/libmiscfilters.so
+%{_libdir}/vapoursynth/libimwri.so
 
 #----------------------------------------------------------------------------
 
@@ -104,7 +107,7 @@ Shared library for %{name}.
 
 %files -n %{libname}
 %doc ChangeLog
-#{_libdir}/libvapoursynth.so.%{major}*
+%{_libdir}/libvapoursynth-52.so
 
 #----------------------------------------------------------------------------
 
@@ -156,6 +159,11 @@ Python bindings for %{name}.
 %files -n python-%{name}
 %doc ChangeLog
 %{py3_platsitedir}/vapoursynth.so
+%{python_sitearch}/VapourSynth
+%{python_sitearch}/VapourSynth-52-py*.*.egg-info/
+%{python_sitearch}/VapourSynth-52-py*.*.egg-info/*
+
+
 
 #----------------------------------------------------------------------------
 
