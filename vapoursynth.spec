@@ -70,9 +70,8 @@ The main features compared to Avisynth are:
 * Compatible with a large number of already existing Avisynth plugins
 
 %files
-%doc ofl.txt COPYING.LGPLv2.1 ChangeLog
+%doc ChangeLog
 %{_bindir}/*
-%{_datadir}/mime/packages/*
 
 #----------------------------------------------------------------------------
 
@@ -85,7 +84,7 @@ Requires:	%{name} = %{EVRD}
 Plugins package for %{name}
 
 %files plugins
-%doc ofl.txt COPYING.LGPLv2.1 ChangeLog
+%doc ChangeLog
 %{_libdir}/vapoursynth/libassvapour.so
 %{_libdir}/vapoursynth/libeedi3.so
 %{_libdir}/vapoursynth/libmorpho.so
@@ -104,7 +103,7 @@ Group:		System/Libraries
 Shared library for %{name}.
 
 %files -n %{libname}
-%doc ofl.txt COPYING.LGPLv2.1 ChangeLog
+%doc ChangeLog
 %{_libdir}/libvapoursynth.so.%{major}*
 
 #----------------------------------------------------------------------------
@@ -135,7 +134,7 @@ Obsoletes:	%{_lib}vapoursynth-static-devel < R26-2
 Development files and headers for %{name}.
 
 %files -n %{devname}
-%doc ofl.txt COPYING.LGPLv2.1 ChangeLog
+%doc ChangeLog
 %{_includedir}/%{name}
 %{_libdir}/libvapoursynth.so
 %{_libdir}/libvapoursynth-script.so
@@ -155,7 +154,7 @@ Python bindings for %{name}.
 
 
 %files -n python-%{name}
-%doc ofl.txt COPYING.LGPLv2.1 ChangeLog
+%doc ChangeLog
 %{py3_platsitedir}/vapoursynth.so
 
 #----------------------------------------------------------------------------
