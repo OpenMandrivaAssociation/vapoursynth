@@ -104,7 +104,7 @@ Shared library for %{name}.
 
 %files -n %{libname}
 %doc ChangeLog
-%{_libdir}/libvapoursynth.so.%{major}*
+#{_libdir}/libvapoursynth.so.%{major}*
 
 #----------------------------------------------------------------------------
 
