@@ -13,7 +13,8 @@ Url:		http://www.vapoursynth.com/
 Source0:	https://github.com/vapoursynth/vapoursynth/archive/%{version}/%{name}-%{version}.tar.gz
 #Source1:	vapoursynth.xml
 #Patch0:		vapoursynth-R26-soname.patch
-Patch0:     vapoursynth-gcc11.patch
+#Patch0:     vapoursynth-gcc11.patch
+Patch1:   vapoursynth-version.patch
 
 BuildRequires:  libtool
 BuildRequires:  nasm
