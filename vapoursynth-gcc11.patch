@@ -1,0 +1,60 @@
+diff --git a/src/core/exprfilter.cpp b/src/core/exprfilter.cpp
+index 8e6f154..1971f18 100644
+--- a/src/core/exprfilter.cpp
++++ b/src/core/exprfilter.cpp
+@@ -32,6 +32,7 @@
+ #include <unordered_map>
+ #include <unordered_set>
+ #include <vector>
++#include <limits>
+ #include "VapourSynth.h"
+ #include "VSHelper.h"
+ #include "cpufeatures.h"
+diff --git a/src/core/genericfilters.cpp b/src/core/genericfilters.cpp
+index 613d98f..327512c 100644
+--- a/src/core/genericfilters.cpp
++++ b/src/core/genericfilters.cpp
+@@ -28,6 +28,7 @@
+ #include <array>
+ #include <memory>
+ #include <vector>
++#include <limits>
+ #include <VapourSynth.h>
+ #include <VSHelper.h>
+ #include "cpufeatures.h"
+diff --git a/src/core/kernel/generic.cpp b/src/core/kernel/generic.cpp
+index f4477bd..c00c619 100644
+--- a/src/core/kernel/generic.cpp
++++ b/src/core/kernel/generic.cpp
+@@ -22,6 +22,7 @@
+ #include <array>
+ #include <cmath>
+ #include <cstdint>
++#include <limits>
+ #include <type_traits>
+ #include "generic.h"
+ 
+diff --git a/src/filters/misc/miscfilters.cpp b/src/filters/misc/miscfilters.cpp
+index b4a727a..8931cbb 100644
+--- a/src/filters/misc/miscfilters.cpp
++++ b/src/filters/misc/miscfilters.cpp
+@@ -25,6 +25,7 @@
+ #include <cstddef>
+ #include <memory>
+ #include <vector>
++#include <limits>
+ #include <VapourSynth.h>
+ #include <VSHelper.h>
+ #include "../src/core/filtersharedcpp.h"
+diff --git a/src/filters/removegrain/clense.cpp b/src/filters/removegrain/clense.cpp
+index 5fdc6b2..2507119 100644
+--- a/src/filters/removegrain/clense.cpp
++++ b/src/filters/removegrain/clense.cpp
+@@ -26,6 +26,7 @@ OTHER DEALINGS IN THE SOFTWARE.
+ */
+ 
+ #include "shared.h"
++#include <limits>
+ 
+ #define CLENSE_RETERROR(x) do { vsapi->setError(out, (x)); vsapi->freeNode(d.cnode); vsapi->freeNode(d.pnode); vsapi->freeNode(d.nnode); return; } while (0)
+ #define CLAMP(value, lower, upper) do { if (value < lower) value = lower; else if (value > upper) value = upper; } while(0)
