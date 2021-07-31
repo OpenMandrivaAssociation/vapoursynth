@@ -1,4 +1,5 @@
 %define major 0
+%define api 54
 %define libname %mklibname %{name} %{major}
 %define libscript %mklibname vapoursynth-script %{major}
 %define devname %mklibname %{name} -d
@@ -14,7 +15,7 @@ License:	LGPLv2
 Group:		Video
 Url:		http://www.vapoursynth.com/
 Source0:	https://github.com/vapoursynth/vapoursynth/archive/R%{version}/%{name}-%{version}.tar.gz
-#Patch1:   vapoursynth-version.patch
+Patch1:   vapoursynth-version.patch
 
 BuildRequires:  libtool
 BuildRequires:  nasm
@@ -104,7 +105,7 @@ Shared library for %{name}.
 
 %files -n %{libname}
 %doc ChangeLog
-%{_libdir}/libvapoursynth-52.so
+%{_libdir}/libvapoursynth-%{api}.so
 
 #----------------------------------------------------------------------------
 
@@ -157,8 +158,8 @@ Python bindings for %{name}.
 %doc ChangeLog
 %{py3_platsitedir}/vapoursynth.so
 #{python_sitearch}/VapourSynth/
-%{python_sitearch}/VapourSynth-52-py*.*.egg-info/
-%{python_sitearch}/VapourSynth-52-py*.*.egg-info/*
+%{python_sitearch}/VapourSynth-%{api}-py*.*.egg-info/
+%{python_sitearch}/VapourSynth-%{api}-py*.*.egg-info/*
 
 
 
