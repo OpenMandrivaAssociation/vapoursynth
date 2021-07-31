@@ -8,9 +8,9 @@
 
 Summary:	A video processing framework with the future in mind
 Name:		vapoursynth
-Version:	R53
+Version:	R54
 Release:	1
-License:	LGPLv2.1
+License:	LGPLv2
 Group:		Video
 Url:		http://www.vapoursynth.com/
 Source0:	https://github.com/vapoursynth/vapoursynth/archive/R%{version}/%{name}-%{version}.tar.gz
