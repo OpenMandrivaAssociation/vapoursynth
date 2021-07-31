@@ -14,7 +14,7 @@ License:	LGPLv2
 Group:		Video
 Url:		http://www.vapoursynth.com/
 Source0:	https://github.com/vapoursynth/vapoursynth/archive/R%{version}/%{name}-%{version}.tar.gz
-Patch1:   vapoursynth-version.patch
+#Patch1:   vapoursynth-version.patch
 
 BuildRequires:  libtool
 BuildRequires:  nasm
