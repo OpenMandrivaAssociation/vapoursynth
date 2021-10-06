@@ -37,7 +37,7 @@ BuildRequires:  pkgconfig(libavutil)
 # Optional
 BuildRequires:  pkgconfig(Magick++) >= 7.0
 
-Requires:	%{name}-plugins = %{EVRD}
+Obsoletes:	%{name}-plugins =< R56 
 Requires:	ffmpeg
 Requires:	tesseract
 
@@ -73,16 +73,16 @@ The main features compared to Avisynth are:
 
 #----------------------------------------------------------------------------
 
-%package plugins
-Summary:	Plugins for %{name}
-Group:		Video
-Requires:	%{name} = %{EVRD}
-
-%description plugins
-Plugins package for %{name}
-
-%files plugins
-%doc ChangeLog
+#package plugins
+#Summary:	Plugins for %{name}
+#Group:		Video
+#Requires:	%{name} = %{EVRD}
+#
+#description plugins
+#Plugins package for %{name}
+#
+#files plugins
+#doc ChangeLog
 #{_libdir}/vapoursynth/libassvapour.so
 #{_libdir}/vapoursynth/libeedi3.so
 #{_libdir}/vapoursynth/libmorpho.so
