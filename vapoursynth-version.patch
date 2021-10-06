@@ -1,12 +1,12 @@
-diff -uraN vapoursynth-R54/Makefile.am omv-vapoursynth-R54/Makefile.am
---- vapoursynth-R54/Makefile.am	2021-07-19 21:10:47.000000000 +0200
-+++ omv-vapoursynth-R54/Makefile.am	2021-08-01 00:22:21.185397878 +0200
-@@ -80,7 +80,7 @@
+diff -uraN vapoursynth-R56/Makefile.am omv-vapoursynth-R56/Makefile.am
+--- vapoursynth-R56/Makefile.am	2021-09-29 13:22:01.000000000 +0200
++++ omv-vapoursynth-R56/Makefile.am	2021-10-06 11:58:58.007249189 +0200
+@@ -88,7 +88,7 @@
  
  pkgconfig_DATA += pc/vapoursynth.pc
  
 -libvapoursynth_la_LDFLAGS = -no-undefined -avoid-version $(UNDEFINEDLDFLAGS)
 +libvapoursynth_la_LDFLAGS = -no-undefined -release $(PACKAGE_VERSION)
  libvapoursynth_la_CPPFLAGS = $(PTHREAD_CFLAGS) $(ZIMG_CFLAGS) -DVS_PATH_PLUGINDIR='"$(PLUGINDIR)"'
- libvapoursynth_la_LIBADD = $(PTHREAD_LIBS) $(ZIMG_LIBS) $(DLOPENLIB) libexprfilter.la
+ libvapoursynth_la_LIBADD = $(PTHREAD_LIBS) $(ZIMG_LIBS) $(DLOPENLIB)
  
