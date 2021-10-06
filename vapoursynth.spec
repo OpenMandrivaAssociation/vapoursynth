@@ -1,5 +1,5 @@
 %define major 0
-%define api 54
+%define api 56
 %define libname %mklibname %{name} %{major}
 %define libscript %mklibname vapoursynth-script %{major}
 %define devname %mklibname %{name} -d
@@ -9,7 +9,7 @@
 
 Summary:	A video processing framework with the future in mind
 Name:		vapoursynth
-Version:	R54
+Version:	R56
 Release:	1
 License:	LGPLv2
 Group:		Video
@@ -37,7 +37,7 @@ BuildRequires:  pkgconfig(libavutil)
 # Optional
 BuildRequires:  pkgconfig(Magick++) >= 7.0
 
-Requires:	%{name}-plugins = %{EVRD}
+Obsoletes:	%{name}-plugins =< R56 
 Requires:	ffmpeg
 Requires:	tesseract
 
@@ -73,26 +73,26 @@ The main features compared to Avisynth are:
 
 #----------------------------------------------------------------------------
 
-%package plugins
-Summary:	Plugins for %{name}
-Group:		Video
-Requires:	%{name} = %{EVRD}
-
-%description plugins
-Plugins package for %{name}
-
-%files plugins
-%doc ChangeLog
+#package plugins
+#Summary:	Plugins for %{name}
+#Group:		Video
+#Requires:	%{name} = %{EVRD}
+#
+#description plugins
+#Plugins package for %{name}
+#
+#files plugins
+#doc ChangeLog
 #{_libdir}/vapoursynth/libassvapour.so
-%{_libdir}/vapoursynth/libeedi3.so
-%{_libdir}/vapoursynth/libmorpho.so
-%{_libdir}/vapoursynth/libocr.so
-%{_libdir}/vapoursynth/libremovegrain.so
-%{_libdir}/vapoursynth/libvinverse.so
-%{_libdir}/vapoursynth/libvivtc.so
-%{_libdir}/vapoursynth/libsubtext.so
-%{_libdir}/vapoursynth/libmiscfilters.so
-%{_libdir}/vapoursynth/libimwri.so
+#{_libdir}/vapoursynth/libeedi3.so
+#{_libdir}/vapoursynth/libmorpho.so
+#_libdir}/vapoursynth/libocr.so
+#{_libdir}/vapoursynth/libremovegrain.so
+#{_libdir}/vapoursynth/libvinverse.so
+#{_libdir}/vapoursynth/libvivtc.so
+#{_libdir}/vapoursynth/libsubtext.so
+#_libdir}/vapoursynth/libmiscfilters.so
+#_libdir}/vapoursynth/libimwri.so
 
 #----------------------------------------------------------------------------
 
