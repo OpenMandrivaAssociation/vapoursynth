@@ -1,5 +1,5 @@
 %define major 0
-%define api 54
+%define api 56
 %define libname %mklibname %{name} %{major}
 %define libscript %mklibname vapoursynth-script %{major}
 %define devname %mklibname %{name} -d
@@ -84,15 +84,15 @@ Plugins package for %{name}
 %files plugins
 %doc ChangeLog
 #{_libdir}/vapoursynth/libassvapour.so
-%{_libdir}/vapoursynth/libeedi3.so
-%{_libdir}/vapoursynth/libmorpho.so
-%{_libdir}/vapoursynth/libocr.so
-%{_libdir}/vapoursynth/libremovegrain.so
-%{_libdir}/vapoursynth/libvinverse.so
-%{_libdir}/vapoursynth/libvivtc.so
-%{_libdir}/vapoursynth/libsubtext.so
-%{_libdir}/vapoursynth/libmiscfilters.so
-%{_libdir}/vapoursynth/libimwri.so
+#{_libdir}/vapoursynth/libeedi3.so
+#{_libdir}/vapoursynth/libmorpho.so
+#_libdir}/vapoursynth/libocr.so
+#{_libdir}/vapoursynth/libremovegrain.so
+#{_libdir}/vapoursynth/libvinverse.so
+#{_libdir}/vapoursynth/libvivtc.so
+#{_libdir}/vapoursynth/libsubtext.so
+#_libdir}/vapoursynth/libmiscfilters.so
+#_libdir}/vapoursynth/libimwri.so
 
 #----------------------------------------------------------------------------
 
