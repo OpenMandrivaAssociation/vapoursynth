@@ -1,5 +1,5 @@
 %define major 0
-%define api 57
+%define api 58
 %define libname %mklibname %{name} %{major}
 %define libscript %mklibname vapoursynth-script %{major}
 %define devname %mklibname %{name} -d
@@ -9,8 +9,8 @@
 
 Summary:	A video processing framework with the future in mind
 Name:		vapoursynth
-Version:	R57
-Release:	2
+Version:	R58
+Release:	1
 License:	LGPLv2
 Group:		Video
 Url:		http://www.vapoursynth.com/
