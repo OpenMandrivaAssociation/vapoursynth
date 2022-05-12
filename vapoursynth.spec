@@ -157,10 +157,7 @@ Python bindings for %{name}.
 %files -n python-%{name}
 %doc ChangeLog
 %{py3_platsitedir}/vapoursynth.so
-#{python_sitearch}/VapourSynth/
-%{python_sitearch}/VapourSynth-%{api}-py*.*.egg-info/
-%{python_sitearch}/VapourSynth-%{api}-py*.*.egg-info/*
-
+%{python_sitearch}/VapourSynth-%{api}-py*.*.egg-info
 
 
 #----------------------------------------------------------------------------
