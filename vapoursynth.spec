@@ -9,7 +9,7 @@
 
 Summary:	A video processing framework with the future in mind
 Name:		vapoursynth
-Version:	R58
+Version:	R59
 Release:	1
 License:	LGPLv2
 Group:		Video
