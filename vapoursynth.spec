@@ -27,6 +27,8 @@ BuildRequires:  python
 BuildRequires:  python3dist(setuptools)
 BuildRequires:	python3dist(cython)
 BuildRequires:	python3dist(sphinx)
+BuildRequires:	python3dist(pip)
+BuildRequires:	python3dist(wheel)
 BuildRequires:	shared-mime-info
 BuildRequires:	ffmpeg-devel
 BuildRequires:  pkgconfig(libass)
