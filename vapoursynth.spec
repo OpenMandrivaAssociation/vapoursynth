@@ -70,7 +70,6 @@ The main features compared to Avisynth are:
 %files
 %doc ChangeLog
 %{_bindir}/*
-%{_prefix}/VAPOURSYNTH_VERSION
 
 #----------------------------------------------------------------------------
 
