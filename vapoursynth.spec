@@ -1,5 +1,5 @@
 %define major 0
-%define api 70
+%define api 71
 %define libname %mklibname %{name} %{major}
 %define libscript %mklibname vapoursynth-script %{major}
 %define devname %mklibname %{name} -d
