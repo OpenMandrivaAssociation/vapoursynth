@@ -10,7 +10,7 @@
 Summary:	A video processing framework with the future in mind
 Name:		vapoursynth
 Version:	R73
-Release:	1
+Release:	2
 License:	LGPLv2
 Group:		Video
 Url:		https://www.vapoursynth.com/
