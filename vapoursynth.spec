@@ -18,6 +18,9 @@ Source0:	https://github.com/vapoursynth/vapoursynth/archive/R%{version}/%{name}-
 Patch1:   vapoursynth-version.patch
 
 BuildRequires:  autoconf
+BuildRequires:  automake
+BuildRequires:  m4
+BuildRequires:  gettext
 BuildRequires:  make
 BuildRequires:  libtool
 BuildRequires:  nasm
