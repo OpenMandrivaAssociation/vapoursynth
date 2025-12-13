@@ -17,6 +17,7 @@ Url:		https://www.vapoursynth.com/
 Source0:	https://github.com/vapoursynth/vapoursynth/archive/R%{version}/%{name}-%{version}.tar.gz
 Patch1:   vapoursynth-version.patch
 
+BuildRequires:  make
 BuildRequires:  libtool
 BuildRequires:  nasm
 BuildRequires:	yasm
