@@ -29,9 +29,9 @@ BuildRequires:  pkgconfig(python)
 BuildRequires:  pkgconfig(tesseract)
 BuildRequires:  pkgconfig(zimg)
 BuildRequires:  python
-BuildRequires:  python3dist(setuptools)
-BuildRequires:	python3dist(cython)
-BuildRequires:	python3dist(sphinx)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(cython)
+BuildRequires:	python%{pyver}dist(sphinx)
 BuildRequires:	shared-mime-info
 BuildRequires:	ffmpeg-devel
 BuildRequires:  pkgconfig(libass)
