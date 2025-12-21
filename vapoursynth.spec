@@ -17,6 +17,8 @@ Url:		https://www.vapoursynth.com/
 Source0:	https://github.com/vapoursynth/vapoursynth/archive/R%{version}/%{name}-%{version}.tar.gz
 Patch1:   vapoursynth-version.patch
 
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  m4
