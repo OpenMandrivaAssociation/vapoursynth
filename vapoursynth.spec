@@ -167,5 +167,5 @@ This package contains documentation of %{name}.
 %meson_build
  
 %install
-%py_install
+#py_install
 %meson_install
