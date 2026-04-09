@@ -84,7 +84,7 @@ Shared library for %{name}.
 
 %files -n %{libname}
 %doc ChangeLog
-%{_libdir}/libvapoursynth-%{api}.so
+#{_libdir}/libvapoursynth-%{api}.so
 
 #----------------------------------------------------------------------------
 
@@ -98,7 +98,7 @@ Shared library for %{name}.
 
 %files -n %{libscript}
 %doc ChangeLog
-%{_libdir}/libvapoursynth-script.so.%{major}*
+#{_libdir}/libvapoursynth-script.so.%{major}*
 
 #----------------------------------------------------------------------------
 
@@ -115,10 +115,10 @@ Development files and headers for %{name}.
 
 %files -n %{devname}
 %doc ChangeLog
-%{_includedir}/%{name}
-%{_libdir}/libvapoursynth.so
-%{_libdir}/libvapoursynth-script.so
-%{_libdir}/pkgconfig/*.pc
+#{_includedir}/%{name}
+#{_libdir}/libvapoursynth.so
+#{_libdir}/libvapoursynth-script.so
+#{_libdir}/pkgconfig/*.pc
 
 #----------------------------------------------------------------------------
 
@@ -135,8 +135,8 @@ Python bindings for %{name}.
 
 %files -n python-%{name}
 %doc ChangeLog
-%{py3_platsitedir}/vapoursynth.so
-%{python_sitearch}/VapourSynth-%{api}-py*.*.egg-info
+#{py3_platsitedir}/vapoursynth.so
+#{python_sitearch}/VapourSynth-%{api}-py*.*.egg-info
 
 
 #----------------------------------------------------------------------------
