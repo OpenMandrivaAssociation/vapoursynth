@@ -15,16 +15,11 @@ License:	LGPLv2
 Group:		Video
 Url:		https://www.vapoursynth.com/
 Source0:	https://github.com/vapoursynth/vapoursynth/archive/R%{version}/%{name}-%{version}.tar.gz
-Patch1:   vapoursynth-version.patch
 
-BuildRequires:	libtool-base
-BuildRequires:	slibtool
-BuildRequires:  autoconf
-BuildRequires:  automake
+BuildRequires:  meson
 BuildRequires:  m4
 BuildRequires:  gettext
 BuildRequires:  make
-BuildRequires:  libtool
 BuildRequires:  nasm
 BuildRequires:	yasm
 BuildRequires:  pkgconfig(python)
@@ -162,26 +157,15 @@ This package contains documentation of %{name}.
 %autosetup -p1 %{name}-%{version}
 
 %build
-autoreconf -vif
-%configure \
-    --disable-static \
-    --enable-x86-asm \
-    --enable-core \
-    --enable-vsscript \
-    --enable-vspipe \
-    --enable-python-module \
-    --enable-eedi3 \
-    --enable-ImageMagick \
-    --enable-miscfilters \
-    --enable-morpho \
-    --enable-ocr \
-    --enable-removegrain \
-    --enable-ffmpeg \
-    --enable-vinverse \
-    --enable-vivtc
+%meson \
+      -Denable_x86_asm=true \
+      -Denable_core=true \
+      -Denable_vsscript=true \
+      -Denable_vspipe=true \
+      -Denable_python_module=true
  
-%make_build
+%meson_build
  
 %install
 %py_install
-%make_install
+%meson_install
