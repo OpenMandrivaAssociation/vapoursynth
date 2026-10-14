@@ -1,5 +1,5 @@
 %define major 0
-%define api 74
+%define api 73
 %define libname %mklibname %{name} %{major}
 %define libscript %mklibname vapoursynth-script %{major}
 %define devname %mklibname %{name} -d
@@ -9,20 +9,25 @@
 
 Summary:	A video processing framework with the future in mind
 Name:		vapoursynth
-Version:	R74
-Release:	1
+Version:	R73
+Release:	3
 License:	LGPLv2
 Group:		Video
 Url:		https://www.vapoursynth.com/
 Source0:	https://github.com/vapoursynth/vapoursynth/archive/R%{version}/%{name}-%{version}.tar.gz
+Patch1:   vapoursynth-version.patch
 
-BuildRequires:  meson
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:  autoconf
+BuildRequires:  automake
 BuildRequires:  m4
 BuildRequires:  gettext
 BuildRequires:  make
+BuildRequires:  libtool
 BuildRequires:  nasm
 BuildRequires:	yasm
-BuildRequires:  pkgconfig(python)
+BuildRequires:  pkgconfig(python3)
 BuildRequires:  pkgconfig(tesseract)
 BuildRequires:  pkgconfig(zimg)
 BuildRequires:  python
@@ -126,7 +131,7 @@ Development files and headers for %{name}.
 Summary:	Python bindings for %{name}
 Group:		Development/Python
 Requires:	%{libname} = %{EVRD}
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3dist(setuptools)
 
 %description -n python-%{name}
@@ -157,15 +162,26 @@ This package contains documentation of %{name}.
 %autosetup -p1 %{name}-%{version}
 
 %build
-%meson \
-      -Denable_x86_asm=true \
-      -Denable_core=true \
-      -Denable_vsscript=true \
-      -Denable_vspipe=true \
-      -Denable_python_module=true
+autoreconf -vif
+%configure \
+    --disable-static \
+    --enable-x86-asm \
+    --enable-core \
+    --enable-vsscript \
+    --enable-vspipe \
+    --enable-python-module \
+    --enable-eedi3 \
+    --enable-ImageMagick \
+    --enable-miscfilters \
+    --enable-morpho \
+    --enable-ocr \
+    --enable-removegrain \
+    --enable-ffmpeg \
+    --enable-vinverse \
+    --enable-vivtc
  
-%meson_build
+%make_build
  
 %install
-#py_install
-%meson_install
+%py_install
+%make_install
